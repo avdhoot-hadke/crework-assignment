@@ -32,12 +32,12 @@ export default function AuthComponent({ type }: { type: string }) {
           withCredentials: true,
         }
       );
-      console.log(result.data);
+      console.log("Auth result:", result.data);
       setError(false);
       router.push("/");
     } catch (error) {
       setError(true);
-      console.log(error);
+      console.log("Auth error:", error);
     }
   };
   const toggleShow = () => {

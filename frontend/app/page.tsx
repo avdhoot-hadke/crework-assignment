@@ -11,16 +11,24 @@ async function fetchData() {
   const cookieStore = cookies();
   const tokenCookie = cookieStore.get("token");
   const token = tokenCookie?.value;
+  console.log("In root page server side, Token from cookie:", token);
+  if (!token) {
+    console.log("No token found, redirecting to /signin");
+    redirect(`/signin`);
+  }
 
-  if (!token) redirect(`/signin`);
-
-  const response = await axios.get(`${process.env.SERVER_URL}/tasks`, {
-    headers: {
-      Cookie: `token=${token}`,
-    },
-  });
-  console.log(response.data);
-  return response.data;
+  try {
+    const response = await axios.get(`${process.env.SERVER_URL}/tasks`, {
+      headers: {
+        Cookie: `token=${token}`,
+      },
+    });
+    console.log(response.data); // Debugging line
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching data:", error); // Debugging line
+    redirect(`/signin`);
+  }
 }
 
 export default async function Home() {
