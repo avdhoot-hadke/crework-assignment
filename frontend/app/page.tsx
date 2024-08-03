@@ -4,7 +4,6 @@ import Tasks from "@/components/tasks";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import axios from "axios";
-import { CookiesProvider } from "next-client-cookies/server";
 
 async function fetchData() {
   const cookieStore = cookies();
@@ -34,16 +33,14 @@ async function fetchData() {
 export default async function Home() {
   const data = await fetchData();
   return (
-    <CookiesProvider>
-      <div className="flex h-screen ">
-        <div className="border min-w-60">
-          <Sidebar />
-        </div>
-
-        <div className="border flex-auto bg-[#F4F4F4] overflow-hidden">
-          <Tasks userData={data} />
-        </div>
+    <div className="flex h-screen ">
+      <div className="border min-w-60">
+        <Sidebar />
       </div>
-    </CookiesProvider>
+
+      <div className="border flex-auto bg-[#F4F4F4] overflow-hidden">
+        <Tasks userData={data} />
+      </div>
+    </div>
   );
 }

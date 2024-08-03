@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
 import { UserProvider, AddTaskProvider } from "./context";
+import { CookiesProvider } from "next-client-cookies/server";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <AddTaskProvider>
         <UserProvider>
-          <body className={inter.className}>{children}</body>
+          <CookiesProvider>
+            <body className={inter.className}>{children}</body>
+          </CookiesProvider>
         </UserProvider>
       </AddTaskProvider>
     </html>
