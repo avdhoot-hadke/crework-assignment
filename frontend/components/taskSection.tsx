@@ -55,7 +55,7 @@ export default function TaskSection() {
               {(provided) => (
                 <div ref={provided.innerRef} {...provided.droppableProps}>
                   {ToDo.map((t: any, index: any) => (
-                    <Draggable draggableId={t._id} index={index}>
+                    <Draggable draggableId={t._id} index={index} key={t._id}>
                       {(provided) => (
                         <div
                           ref={provided.innerRef}
@@ -80,7 +80,7 @@ export default function TaskSection() {
               {(provided) => (
                 <div ref={provided.innerRef} {...provided.droppableProps}>
                   {InProgress.map((t: any, index: any) => (
-                    <Draggable draggableId={t._id} index={index}>
+                    <Draggable draggableId={t._id} index={index} key={t._id}>
                       {(provided) => (
                         <div
                           ref={provided.innerRef}
@@ -103,7 +103,7 @@ export default function TaskSection() {
               {(provided) => (
                 <div ref={provided.innerRef} {...provided.droppableProps}>
                   {UnderReview.map((t: any, index: any) => (
-                    <Draggable draggableId={t._id} index={index}>
+                    <Draggable draggableId={t._id} index={index} key={t._id}>
                       {(provided) => (
                         <div
                           ref={provided.innerRef}
@@ -126,7 +126,7 @@ export default function TaskSection() {
               {(provided) => (
                 <div ref={provided.innerRef} {...provided.droppableProps}>
                   {Completed.map((t: any, index: any) => (
-                    <Draggable draggableId={t._id} index={index}>
+                    <Draggable draggableId={t._id} index={index} key={t._id}>
                       {(provided) => (
                         <div
                           ref={provided.innerRef}

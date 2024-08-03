@@ -108,7 +108,7 @@ export default function AuthComponent({ type }: { type: string }) {
             </p>
           ) : (
             <p className="mt-4">
-              Don't have an account? Create a
+              Don&apost have an account? Create a
               <Link className=" text-[#0054A1]" href="/signup">
                 {" "}
                 new account.

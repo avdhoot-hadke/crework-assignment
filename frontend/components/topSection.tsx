@@ -30,8 +30,8 @@ export default function TopSection() {
           <div>
             <h1>Access Anywhere</h1>
             <p className="text-[#797979] text-sm p-2">
-              Sync your notes across all devices. Stay productive whether you're
-              on your phone, tablet, or computer.
+              Sync your notes across all devices. Stay productive whether
+              you&aposre on your phone, tablet, or computer.
             </p>
           </div>
         </div>
