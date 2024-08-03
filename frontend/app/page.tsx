@@ -1,7 +1,6 @@
 "use server";
 import Sidebar from "@/components/sidebar";
 import Tasks from "@/components/tasks";
-import Image from "next/image";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import axios from "axios";
@@ -9,6 +8,7 @@ import { CookiesProvider } from "next-client-cookies/server";
 
 async function fetchData() {
   const cookieStore = cookies();
+  console.log("In root page server side, all cookies", cookieStore.getAll());
   const tokenCookie = cookieStore.get("token");
   const token = tokenCookie?.value;
   console.log("In root page server side, Token from cookie:", token);
