@@ -3,10 +3,12 @@ import axios from "axios";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useCookies } from "next-client-cookies";
 
 export default function AuthComponent({ type }: { type: string }) {
   const [show, setShow] = useState(false);
   const router = useRouter();
+  const cookies = useCookies();
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -33,6 +35,7 @@ export default function AuthComponent({ type }: { type: string }) {
         }
       );
       console.log("Auth result:", result.data);
+      cookies.set("token", result.data.token);
       setError(false);
       router.push("/");
     } catch (error) {
